@@ -2,7 +2,7 @@ import genHome from './genHome';
 import genContact from './genContact';
 import genMenu from './genMenu';
 
-const content = (function() {
+const content = (function () {
 	const root = document.querySelector("#content");
 	const tab = (function() {
 		const div = document.createElement("div");
@@ -22,7 +22,6 @@ const content = (function() {
 			}
 
 			e.target.classList.add("current");
-
 			switch (e.target.dataset.name) {
 				case "contact":
 					tab.appendChild(genContact());
@@ -35,40 +34,33 @@ const content = (function() {
 			}
 		}
 
+		// Nav tag
 		const div = document.createElement("div");
+		const brand = document.createElement("div");
+		const tabs = document.createElement("ul");
+		const home = document.createElement("li");
+		const contact = document.createElement("li");
+		const menu = document.createElement("li");
 		div.id = "nav";
 		div.classList.add("flex");
-
-		const brand = document.createElement("div");
 		brand.id = "brand";
 		brand.textContent = "Yum Yum";
 		brand.addEventListener("click", update);
-
-		const tabs = document.createElement("ul");
-
-		const home = document.createElement("li");
 		home.dataset.name = "home";
 		home.textContent = "Home";
 		home.classList.add("current");
 		home.addEventListener("click", update);
-
-		const contact = document.createElement("li");
 		contact.dataset.name = "contact";
 		contact.textContent = "Contact";
 		contact.addEventListener("click", update);
-
-		const menu = document.createElement("li");
 		menu.dataset.name = "menu";
 		menu.textContent = "Menu";
 		menu.addEventListener("click", update);
-
 		tabs.appendChild(home);
 		tabs.appendChild(menu);
 		tabs.appendChild(contact);
-
 		div.appendChild(brand);
 		div.appendChild(tabs);
-
 		return div;
 	})();
 	
@@ -77,7 +69,8 @@ const content = (function() {
 		root.appendChild(tab);
 	}
 
-	return {show};
+	return { show };
 })();
 
 content.show();
+
