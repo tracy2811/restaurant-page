@@ -25,4 +25,7 @@ li {
 
 #home {
 	background: no-repeat center/100% url('./food.jpg');
+	height: 80vh;
+	padding-top: 30vh;
+	box-sizing: border-box;
 }
